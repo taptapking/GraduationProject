@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">FormTestLinearLayout</string>
+    <string name="app_name">LNDK Camera store</string>
     <string name="no">One or more fields have been left empty</string>
     <string name="yes">All done</string>
     <string name="dice2">Dice 2</string>
+    <string name="rightAddress">Welcome to LNDK camera store</string>
+    <string name="quality">You can find many camera products with the most affordable price</string>
 </resources>

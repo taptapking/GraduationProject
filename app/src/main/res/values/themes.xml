@@ -1,10 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FirstApp" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.GraduationProject" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">#000000</item>
+
+
         
     </style>
 
-    <style name="Theme.FirstApp" parent="Base.Theme.FirstApp" />
+
+    <style name="Theme.GraduationProject" parent="Base.Theme.GraduationProject" />
 </resources>

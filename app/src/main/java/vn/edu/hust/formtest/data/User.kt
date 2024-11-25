@@ -1,4 +1,10 @@
 package vn.edu.hust.formtest.data
 
-class User {
+data class User(
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val imagePath: String = ""
+) {
+    constructor(): this("","","","")
 }
