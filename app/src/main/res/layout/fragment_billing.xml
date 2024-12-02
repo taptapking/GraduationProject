@@ -35,7 +35,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:fontFamily="@font/poppins_light"
                     android:text="Billing"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -51,7 +50,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Payment Methods"
-            android:fontFamily="@font/poppins_thin"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/toolbarBilling"
             app:layout_constraintStart_toStartOf="@id/guideline1"
@@ -63,8 +61,7 @@
             android:id="@+id/tvPaymentExplanation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Keline dose not support virtual payments. You can pay when you receive your order."
-            android:fontFamily="@font/sf_pro_display"
+            android:text="LNDK doesn't support virtual payments. You can pay when you receive your order."
             app:layout_constraintTop_toBottomOf="@id/tvPaymentMethods"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
@@ -80,7 +77,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvPaymentExplanation"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-            android:backgroundTint="@color/g_blue_gray200"
+            android:backgroundTint="@color/g_blue_gray_200"
             />
 
         <TextView
@@ -88,7 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shipping Address"
-            android:fontFamily="@font/poppins_thin"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -144,7 +140,7 @@
             app:layout_constraintTop_toBottomOf="@id/rvFrame"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-            android:backgroundTint="@color/g_blue_gray200"
+            android:backgroundTint="@color/g_blue_gray_200"
             />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -169,7 +165,7 @@
             app:layout_constraintTop_toBottomOf="@id/rvProducts"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-            android:backgroundTint="@color/g_blue_gray200"
+            android:backgroundTint="@color/g_blue_gray_200"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,7 +185,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sf_pro_display"
                 android:text="Total"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -205,8 +200,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="15dp"
-                android:fontFamily="@font/sf_pro_display"
-                android:text="$150"
+                android:text="1000 VND"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -216,10 +210,10 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonPlaceOrder"
             android:layout_width="0dp"
-            android:layout_height="@dimen/mediumButtonHeight"
+            android:layout_height="wrap_content"
             style="@style/blueButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/totalBoxContainer"
             app:layout_constraintStart_toStartOf="@id/totalBoxContainer"

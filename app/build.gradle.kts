@@ -55,12 +55,13 @@ dependencies {
 
     //implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation("com.google.dagger:hilt-android:2.52")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.activity:activity-ktx:1.9.3")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
     implementation("com.google.firebase:firebase-auth:23.1.0")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation("com.google.firebase:firebase-storage:21.0.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.52")
 
     //implementation("com.google.android.material:material:1.8.0")
     //implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -76,17 +77,17 @@ dependencies {
     apply(plugin = "kotlin-kapt")
     implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
 
-    implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
-
     //implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
-    //("com.github.shuhart.stepview:stepview:1.5.1")
+    implementation("com.github.shuhart:stepview:1.5.1")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-compiler:2.51.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
+    implementation("com.google.dagger:hilt-android:2.52")
+    kapt("com.google.dagger:hilt-compiler:2.52")
 
     implementation("com.google.firebase:firebase-auth:23.1.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.8.3")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
 }

@@ -13,7 +13,7 @@ import vn.edu.hust.formtest.util.Resource
 import javax.inject.Inject
 
 @HiltViewModel
-class OrdersViewModel @Inject constructor(
+class AllOrdersViewModel @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth
 ): ViewModel() {

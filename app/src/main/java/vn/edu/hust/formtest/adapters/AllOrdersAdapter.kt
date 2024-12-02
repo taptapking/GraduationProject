@@ -12,7 +12,7 @@ import vn.edu.hust.formtest.data.order.getOrderStatus
 import vn.edu.hust.graduationproject.R
 import vn.edu.hust.graduationproject.databinding.OrderItemBinding
 
-class OrdersAdapter: RecyclerView.Adapter<OrdersAdapter.OrdersViewHolder>() {
+class AllOrdersAdapter: RecyclerView.Adapter<AllOrdersAdapter.OrdersViewHolder>() {
 
     inner class OrdersViewHolder(private val binding: OrderItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(order: Order){
@@ -71,6 +71,10 @@ class OrdersAdapter: RecyclerView.Adapter<OrdersAdapter.OrdersViewHolder>() {
     override fun onBindViewHolder(holder: OrdersViewHolder, position: Int) {
         val order = differ.currentList[position]
         holder.bind(order)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(order)
+        }
     }
 
     override fun getItemCount(): Int {

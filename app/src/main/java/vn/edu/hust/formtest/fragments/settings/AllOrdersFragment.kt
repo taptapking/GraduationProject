@@ -8,20 +8,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import vn.edu.hust.formtest.adapters.OrdersAdapter
+import vn.edu.hust.formtest.adapters.AllOrdersAdapter
 import vn.edu.hust.formtest.util.Resource
-import vn.edu.hust.formtest.viewmodel.OrdersViewModel
+import vn.edu.hust.formtest.viewmodel.AllOrdersViewModel
 import vn.edu.hust.graduationproject.databinding.FragmentOrdersBinding
 
 @AndroidEntryPoint
-class OrdersFragment : Fragment() {
+class AllOrdersFragment : Fragment() {
     private lateinit var binding: FragmentOrdersBinding
-    val viewModel by viewModels<OrdersViewModel>()
-    val ordersAdapter by lazy { OrdersAdapter() }
+    val viewModel by viewModels<AllOrdersViewModel>()
+    val allOrdersAdapter by lazy { AllOrdersAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +45,7 @@ class OrdersFragment : Fragment() {
                     }
                     is Resource.Success -> {
                         binding.progressbarAllOrders.visibility = View.GONE
-                        ordersAdapter.differ.submitList(it.data)
+                        allOrdersAdapter.differ.submitList(it.data)
                         if (it.data.isNullOrEmpty()){
                             binding.tvEmptyOrders.visibility = View.VISIBLE
                         }
@@ -57,11 +58,15 @@ class OrdersFragment : Fragment() {
                 }
             }
         }
+        allOrdersAdapter.onClick = {
+            val action = AllOrdersFragmentDirections.actionOrdersFragmentToOrderDetailFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupOrdersRv() {
         binding.rvAllOrders.apply{
-            adapter = ordersAdapter
+            adapter = allOrdersAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
     }

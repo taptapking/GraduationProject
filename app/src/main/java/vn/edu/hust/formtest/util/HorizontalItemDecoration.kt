@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class VerticalItemDecoration(private val amount: Int = 30): RecyclerView.ItemDecoration() {
+class HorizontalItemDecoration(private val amount: Int = 15): RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -12,6 +12,6 @@ class VerticalItemDecoration(private val amount: Int = 30): RecyclerView.ItemDec
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        outRect.bottom = amount
+        outRect.right = amount
     }
 }
