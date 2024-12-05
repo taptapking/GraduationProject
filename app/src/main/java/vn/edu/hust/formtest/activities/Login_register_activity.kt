@@ -12,8 +12,10 @@ class login_register_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_register)
 
-
-
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 }

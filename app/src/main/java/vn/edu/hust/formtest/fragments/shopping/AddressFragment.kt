@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import vn.edu.hust.formtest.data.Address
@@ -20,6 +21,7 @@ import vn.edu.hust.graduationproject.databinding.FragmentAddressBinding
 class AddressFragment: Fragment() {
     private lateinit var binding: FragmentAddressBinding
     val viewModel by viewModels<AddressViewModel>()
+    val args by navArgs<AddressFragmentArgs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +63,20 @@ class AddressFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val address = args.address
+        if (address == null){
+            binding.buttonDelelte.visibility = View.GONE
+        }else{
+            binding.apply{
+                edAddressTitle.setText(address.addressTitle)
+                edFullName.setText(address.fullName)
+                edDistrict.setText(address.street)
+                edPhone.setText(address.phone)
+                edCity.setText(address.city)
+                edStreet.setText(address.street)
+            }
+        }
 
         binding.apply {
             buttonSave.setOnClickListener{
