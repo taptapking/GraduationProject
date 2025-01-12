@@ -101,7 +101,7 @@ class UserAccountViewModel @Inject constructor(
                 saveUserInformation(user.copy(imagePath = imageUrl), false)
             }  catch (e: Exception){
                 viewModelScope.launch {
-                    _updateInfo.emit(Resource.Error(e.message.toString()))
+                    _user.emit(Resource.Error(e.message.toString()))
                 }
             }
         }

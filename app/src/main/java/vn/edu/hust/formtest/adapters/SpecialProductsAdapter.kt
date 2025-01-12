@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import vn.edu.hust.formtest.data.Product
-import vn.edu.hust.graduationproject.R
 import vn.edu.hust.graduationproject.databinding.SpecialRvItemBinding
 
 class SpecialProductsAdapter: RecyclerView.Adapter<SpecialProductsAdapter.SpecialProductsViewHolder>() {
@@ -15,8 +15,8 @@ class SpecialProductsAdapter: RecyclerView.Adapter<SpecialProductsAdapter.Specia
         RecyclerView.ViewHolder(binding.root){
             fun bind(product: Product){
                 binding.apply{
-                    //Glide.with(itemView).load(product.images[0]).into(imageSpecialRvItem)
-                    imageSpecialRvItem.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
+                    Glide.with(itemView).load(product.images[0]).into(imageSpecialRvItem)
+                    //imageSpecialRvItem.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
                     tvSpecialProductName.text = product.name
                     tvSpecialProductPrice.text = product.price.toString()
                 }

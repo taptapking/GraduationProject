@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import vn.edu.hust.graduationproject.R
+import com.bumptech.glide.Glide
 import vn.edu.hust.graduationproject.databinding.ViewpagerImageItemBinding
 
 class ViewPager2Images: RecyclerView.Adapter<ViewPager2Images.ViewPager2ImagesViewHolder>() {
 
     inner class ViewPager2ImagesViewHolder(val binding: ViewpagerImageItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(imagePath: String){
-            //Glide.with(itemView).load(imagePath).into(binding.imageProductDetails)
-            binding.imageProductDetails.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
+            Glide.with(itemView).load(imagePath).into(binding.imageProductDetails)
+            //binding.imageProductDetails.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
         }
     }
 

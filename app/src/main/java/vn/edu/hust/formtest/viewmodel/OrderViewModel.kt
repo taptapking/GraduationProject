@@ -29,13 +29,14 @@ class OrderViewModel @Inject constructor(
             //add orders into orders collection
             //delete products from user-cart collection
 
-            firestore.collection("user")
-                .document(auth.uid!!)
-                .collection("orders")
-                .document()
-                .set(order)
+            order.userID = auth.uid!!
+//            firestore.collection("user")
+//                .document(auth.uid!!)
+//                .collection("orders")
+//                .document()
+//                .set(order)
 
-            firestore.collection("user").document().set(order)
+            firestore.collection("order").document().set(order)
 
             firestore.collection("user").document(auth.uid!!).collection("cart").get()
                 .addOnSuccessListener {

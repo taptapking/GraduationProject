@@ -70,7 +70,7 @@ dependencies {
 
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    implementation("com.android.databinding:viewbinding:8.7.2")
+    implementation("com.android.databinding:viewbinding:8.7.3")
     implementation("com.android.support.constraint:constraint-layout:2.0.4")
     implementation("com.android.support:recyclerview-v7:28.0.0")
     implementation("com.google.firebase:firebase-firestore:25.1.1")
@@ -82,12 +82,12 @@ dependencies {
     //implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
     implementation("com.github.shuhart:stepview:1.5.1")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
     implementation("com.google.dagger:hilt-android:2.52")
     kapt("com.google.dagger:hilt-compiler:2.52")
 
     implementation("com.google.firebase:firebase-auth:23.1.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
 }

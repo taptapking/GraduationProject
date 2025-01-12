@@ -151,6 +151,7 @@ class BillingFragment: Fragment() {
             }
             setPositiveButton("Yes"){ dialog, _->
                 val order = Order(
+                    "",
                     OrderStatus.Ordered.status,
                     totalPrice,
                     products,

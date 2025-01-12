@@ -76,17 +76,17 @@ class MainCategoryViewModel @Inject constructor(
             viewModelScope.launch {
                 _bestProducts.emit(Resource.Loading())
             }
-            firestore.collection("Products").limit(pagingInfo.bestProductsPage * 10)
+            firestore.collection("Products").limit(pagingInfo.ProductsPage * 10)
                 .orderBy("price",Query.Direction.ASCENDING)
                 .get()
                 .addOnSuccessListener { result ->
-                    val bestProducts = result.toObjects(Product::class.java)
-                    pagingInfo.isPagingEnd = bestProducts == pagingInfo.oldBestProducts
-                    pagingInfo.oldBestProducts = bestProducts
+                    val Products = result.toObjects(Product::class.java)
+                    pagingInfo.isPagingEnd = Products == pagingInfo.oldProducts
+                    pagingInfo.oldProducts = Products
                     viewModelScope.launch {
-                        _bestProducts.emit(Resource.Success(bestProducts))
+                        _bestProducts.emit(Resource.Success(Products))
                     }
-                    pagingInfo.bestProductsPage++
+                    pagingInfo.ProductsPage++
                 }
                 .addOnFailureListener {
                     viewModelScope.launch {
@@ -99,7 +99,7 @@ class MainCategoryViewModel @Inject constructor(
 
 
 internal data class PagingInfo(
-    var bestProductsPage: Long = 1,
-    var oldBestProducts: List<Product> = emptyList(),
+    var ProductsPage: Long = 1,
+    var oldProducts: List<Product> = emptyList(),
     var isPagingEnd: Boolean = false
 )

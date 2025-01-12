@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import vn.edu.hust.formtest.data.CartProduct
 import vn.edu.hust.formtest.helper.getProductPrice
-import vn.edu.hust.graduationproject.R
 import vn.edu.hust.graduationproject.databinding.BillingProductsRvItemBinding
 
 class BillingProductsAdapter: RecyclerView.Adapter<BillingProductsAdapter.BillingProductsViewHolder>() {
     inner class BillingProductsViewHolder(val binding: BillingProductsRvItemBinding): ViewHolder(binding.root){
         fun bind(billingProduct: CartProduct){
             binding.apply {
-                //Glide.with(itemView).load(billingProduct.product.image[0]).into(imageCartProduct)
-                imageCartProduct.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
+                Glide.with(itemView).load(billingProduct.product.images[0]).into(imageCartProduct)
+                //imageCartProduct.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
                 tvProductCartName.text = billingProduct.product.name
                 tvBillingProductQuantity.text = billingProduct.quantity.toString()
 

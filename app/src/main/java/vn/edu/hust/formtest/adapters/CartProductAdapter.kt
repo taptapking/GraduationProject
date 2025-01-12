@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import vn.edu.hust.formtest.data.CartProduct
 import vn.edu.hust.formtest.helper.getProductPrice
-import vn.edu.hust.graduationproject.R
 import vn.edu.hust.graduationproject.databinding.CartProductItemBinding
 
 
@@ -19,13 +19,13 @@ class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsV
         RecyclerView.ViewHolder(binding.root){
         fun bind(cartProduct: CartProduct){
             binding.apply{
-                //Glide.with(itemView).load(cartProduct.product.images[0]).into(imageCartProduct)
-                imageCartProduct.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
+                Glide.with(itemView).load(cartProduct.product.images[0]).into(imageCartProduct)
+                //imageCartProduct.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
                 tvProductCartName.text = cartProduct.product.name
                 tvCartProductQuantity.text = cartProduct.quantity.toString()
 
                 val priceAfterPercentage = cartProduct.product.offerPercentage.getProductPrice(cartProduct.product.price)
-                tvProductCartPrice.text = "${String.format("%.0f",priceAfterPercentage)} VND"
+                tvProductCartPrice.text = "${String.format("%,.0f",priceAfterPercentage)} VND"
 
                 imageCartProductColor.setImageDrawable(ColorDrawable(cartProduct.selectedColor?: Color.TRANSPARENT))
                 tvCartProductSize.text = cartProduct.selectedSize?:"".also {

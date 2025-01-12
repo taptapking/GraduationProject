@@ -28,9 +28,10 @@ class AllOrdersViewModel @Inject constructor(
         viewModelScope.launch{
             _allOrders.emit(Resource.Loading())
         }
-        firestore.collection("user").document(auth.uid!!).collection("orders").get()
-            .addOnSuccessListener {
-                val orders= it.toObjects(Order::class.java)
+//        firestore.collection("user").document(auth.uid!!).collection("orders").get()
+            firestore.collection("order").whereEqualTo("userID",auth.uid!!).get()
+            .addOnSuccessListener { querySnapshot ->
+                val orders= querySnapshot.toObjects(Order::class.java)
                 viewModelScope.launch{
                     _allOrders.emit(Resource.Success(orders))
                 }

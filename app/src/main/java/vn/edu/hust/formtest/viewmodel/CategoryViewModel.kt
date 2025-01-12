@@ -20,7 +20,7 @@ class CategoryViewModel constructor(
     private val _bestProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
     val bestProducts = _bestProducts.asStateFlow()
 
-    private val pagingInfo = PagingInfo()
+    private val pagingInfo = PagingInfo2()
 
     init {
         fetchOfferProducts()

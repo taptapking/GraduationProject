@@ -5,22 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import vn.edu.hust.formtest.data.Product
-import vn.edu.hust.graduationproject.R
 import vn.edu.hust.graduationproject.databinding.BestDealsRvItemBinding
 
 class BestDealsAdapter: RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHolder>() {
     inner class BestDealsViewHolder(private val binding: BestDealsRvItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product){
             binding.apply{
-                //Glide.with(itemView).load(product.images[0]).into(imgBestDeal)
-                imgBestDeal.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
+                Glide.with(itemView).load(product.images[0]).into(imgBestDeal)
+                //imgBestDeal.setImageResource(R.drawable.photo_camera_interface_symbol_for_button)
                 product.offerPercentage?.let{
                     val remainingPricePercentage = 1f - it
                     val priceAfterOffer = remainingPricePercentage * product.price
-                    tvNewPrice.text = "${String.format("%.0f",priceAfterOffer)} VND"
+                    tvNewPrice.text = "${String.format("%,.0f",priceAfterOffer)} VND"
                 }
-                tvOldPrice.text = "${product.price} VND"
+                tvOldPrice.text = "${String.format("%,.0f",product.price)} VND"
                 tvDealProductName.text = product.name
             }
         }

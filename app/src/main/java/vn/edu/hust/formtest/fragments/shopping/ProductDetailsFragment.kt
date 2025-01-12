@@ -17,6 +17,7 @@ import vn.edu.hust.formtest.adapters.ColorsAdapter
 import vn.edu.hust.formtest.adapters.SizesAdapter
 import vn.edu.hust.formtest.adapters.ViewPager2Images
 import vn.edu.hust.formtest.data.CartProduct
+import vn.edu.hust.formtest.helper.getProductPrice
 import vn.edu.hust.formtest.util.Resource
 import vn.edu.hust.formtest.util.hideBottomNavigationView
 import vn.edu.hust.formtest.viewmodel.DetailsViewModel
@@ -92,7 +93,9 @@ class ProductDetailsFragment: Fragment() {
 
         binding.apply {
             tvProductName.text = product.name
-            tvProductPrice.text = "$ ${product.price}"
+
+            val priceAfterOffer = product.offerPercentage.getProductPrice(product.price)
+            tvProductPrice.text = "${String.format("%,.0f",priceAfterOffer)} VND"
             tvProductDescription.text = product.description
 
             if (product.colors.isNullOrEmpty())
